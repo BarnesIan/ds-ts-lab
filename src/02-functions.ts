@@ -77,3 +77,15 @@ console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name
     //test
     console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
     console.log(findFriends(friends, (friend) => friend.age < 35));
+
+
+   function addInterest(friend: Friend, newInterests: string){
+    if (!friend.interests) {
+
+        friend.interests = []; // Ensure interests array exists if it's not already made for that Friend
+    }
+     friend.interests.push(newInterests)
+     return friend.interests 
+    }
+    //test
+    console.log(addInterest(friends[1], 'Politics'))
