@@ -21,12 +21,12 @@ const friend1: Friend = {
   console.log(friends[1]);
   
   //   -------------------
-interface Collegue {
+interface Colleague {
     name: string,
     department: string,
     contact: {email:string, extension: number} 
 }
-  const colleague1: Collegue = {
+  const colleague1: Colleague = {
     name: "Ralph Graham",
     department: "Engineering",
     contact: {
@@ -35,7 +35,7 @@ interface Collegue {
     },
   };
   
-  const colleague2: Collegue= {
+  const colleague2: Colleague= {
     name: "Patti Burke",
     department: "Finance",
     contact: {
@@ -44,7 +44,7 @@ interface Collegue {
     },
   };
   
-  const colleague3: Collegue = {
+  const colleague3: Colleague = {
     name: "Dean Sullivan",
     department: "HR",
     contact: {
@@ -52,9 +52,15 @@ interface Collegue {
       extension: 125,
     },
   };
-  const colleagues = {
+ export const colleagues: ColleagueHistory = {
     current: [colleague1, colleague2, colleague3],
     former: [],
   };
   
   console.log(colleagues.current[0]);
+
+  interface ColleagueHistory {
+    current: Colleague[],
+    former: Colleague[]
+  }
+  
