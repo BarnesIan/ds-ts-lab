@@ -2,17 +2,25 @@ import {Friend, Colleague, ColleagueHistory } from './myTypes'
 
 // (Optional) Change the names below to your friends.
 
-const friend1: Friend = {
-    name: "Paul Fleming",
-    phone: "087-12345",
-    age: 25,
-  };
-  
-  const friend2: Friend = {
-    name: "Jane Costello",
-    phone: "086--12345",
-    age: 31,
-  };
+const friend1 : Friend = {
+  name: "Paul Fleming",
+  phone: "087-12345",
+  age: 25,
+  dob: new Date("1998-11-20") ,
+};
+
+const friend2 : Friend = {
+  name: "Jane Costello",
+  phone: "086--12345",
+  age: 31,
+  interests: ['Music', 'Sport']
+};
+
+const friend3 : Friend = {
+  name: "Rob byrne",
+  phone: "086--1234235",
+  age: 27,
+};
   
   export const friends = [friend1, friend2];
  // console.log(friends[1]);

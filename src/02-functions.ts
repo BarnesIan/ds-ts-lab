@@ -50,17 +50,23 @@ console.log(colleagues.current.filter((c) => c.name === "Sheild O Connell"));
 
 function sortColleagues(
     colleagues: Colleague[],
-    sorter: (c1: Colleague, c2: Colleague) => number
+    sorter: (c1: Colleague, c2: Colleague) => number,
+    max? : number     // CHANGED
   ): EmailContact[] {
-    const sorted = colleagues.sort(sorter); // Colleague[] inferred
-    const result: EmailContact[] = sorted.map((ce) => ({ name: ce.name, email: ce.contact.email }));
-    return result 
+    let end = colleagues.length;
+  if (max !== undefined) {
+     end = max < 2 ? 1 : max
   }
-  
-  console.log(sortColleagues(colleagues.current, (a, b) => a.contact.extension - b.contact.extension));
-  console.log(sortColleagues(colleagues.current, (a, b) => a.name.length - b.name.length));
-
- //Find friends using a boolean check on the array
+    const sorted = colleagues.sort(sorter);
+    const fullResult =  sorted.map((ce) => ({ name: ce.name, email: ce.contact.email }));
+    return fullResult.slice(0,end)
+  }
+// Test invocations
+console.log(sortColleagues(colleagues.current, (a, b) => (a.contact.extension - b.contact.extension),3));
+console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length),1));
+console.log(sortColleagues(colleagues.current, (a, b) => (a.name.length - b.name.length))); // NEW
+ 
+  //Find friends using a boolean check on the array
   function findFriends(
     friends : Friend[],
     filter: (f1: Friend) => boolean) : string[] {  
